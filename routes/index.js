@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
     faceScoreMain(req, res);
 });
 
+router.post('uploadFile', function(req, res, next){
+	getPic(req, res);
+});
+
 function faceScoreMain(req, res){
 	var imageData;
 	var imageUrl;
@@ -81,6 +85,10 @@ function base64_encode(file) {
     var bitmap = fs.readFileSync(file);
     // convert binary data to base64 encoded string
     return new Buffer(bitmap).toString('base64');
+}
+
+function uploadPic(req, res){
+	console.log(res);
 }
 
 module.exports = router;
